@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="555" pageHeight="802" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3f451db9-1638-4f4e-8f00-cc0b1b01b271">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[select * from historique]]>
+	</queryString>
+	<field name="designation" class="java.lang.Object"/>
+	<field name="quantite" class="java.lang.Object"/>
+	<field name="poids" class="java.lang.Object"/>
+	<field name="prix" class="java.lang.Object"/>
+	<field name="date" class="java.lang.Object"/>
+	<field name="barcode" class="java.lang.Object"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="178" y="18" width="174" height="36" uuid="56c6cb0f-02f8-4c29-9ed1-6f57b9d5c5fe"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMMANDES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="9" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="9" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="34">
+			<textField>
+				<reportElement x="12" y="10" width="72" height="20" uuid="bcdb6c81-0148-4746-821e-5a862f977d34"/>
+				<textFieldExpression><![CDATA[$F{quantite}+$F{poids}+"Kg"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="10" width="133" height="20" uuid="3021581c-47c3-4766-873a-f68afc5031cf"/>
+				<textFieldExpression><![CDATA[""+$F{designation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="10" width="100" height="20" uuid="cbbdee07-797b-48c3-a555-eb0e660c75de"/>
+				<textFieldExpression><![CDATA[""+$F{prix}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="62" splitType="Stretch">
+			<componentElement>
+				<reportElement x="215" y="0" width="200" height="50" uuid="470ac1b4-2f9d-40e9-9d11-d71af7f33b1e"/>
+				<jr:barbecue xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" type="2of7" drawText="false" checksumRequired="false">
+					<jr:codeExpression><![CDATA["1234"]]></jr:codeExpression>
+				</jr:barbecue>
+			</componentElement>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="107" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="51" splitType="Stretch"/>
+	</summary>
+</jasperReport>

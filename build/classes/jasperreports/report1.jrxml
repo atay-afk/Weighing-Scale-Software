@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="230" pageHeight="200" whenNoDataType="BlankPage" columnWidth="230" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="3f451db9-1638-4f4e-8f00-cc0b1b01b271">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select * from historique]]>
+	</queryString>
+	<field name="designation" class="java.lang.Object"/>
+	<field name="quantite" class="java.lang.Object"/>
+	<field name="pesable" class="java.lang.Object"/>
+	<field name="prix" class="java.lang.Object"/>
+	<field name="date" class="java.lang.Object"/>
+	<field name="barcode" class="java.lang.Object"/>
+	<variable name="variable1" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{prix}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="58" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="22" width="174" height="36" uuid="56c6cb0f-02f8-4c29-9ed1-6f57b9d5c5fe"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMMANDES]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="9" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="20">
+			<textField>
+				<reportElement x="0" y="0" width="57" height="20" uuid="bcdb6c81-0148-4746-821e-5a862f977d34"/>
+				<textFieldExpression><![CDATA[$F{quantite}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="57" y="0" width="133" height="20" uuid="3021581c-47c3-4766-873a-f68afc5031cf"/>
+				<textFieldExpression><![CDATA[$F{designation}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="190" y="0" width="27" height="20" uuid="cbbdee07-797b-48c3-a555-eb0e660c75de"/>
+				<textFieldExpression><![CDATA[$F{prix}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="78" splitType="Stretch">
+			<staticText>
+				<reportElement x="29" y="57" width="48" height="20" uuid="818c3c8c-a570-404d-bddb-c803ae76d07e"/>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="77" y="57" width="72" height="20" uuid="e3a2e359-2d8e-4804-87f5-ef3b94eb3e8f"/>
+				<textFieldExpression><![CDATA[$V{variable1}]]></textFieldExpression>
+			</textField>
+			<componentElement>
+				<reportElement x="29" y="0" width="156" height="48" uuid="5706da70-646b-456d-afe4-23bf46f18fb5"/>
+				<jr:Codabar xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" textPosition="bottom">
+					<jr:codeExpression><![CDATA[$F{barcode}]]></jr:codeExpression>
+				</jr:Codabar>
+			</componentElement>
+		</band>
+	</pageFooter>
+</jasperReport>
